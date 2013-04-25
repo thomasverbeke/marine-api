@@ -82,7 +82,7 @@ class DefaultDataReader implements DataReader {
 			try {
 				if (input.ready()) {
 					String original = input.readLine();
-					//CUT OFF first three char
+					//CUT OFF extra characters added by the PIC
 					int position = original.indexOf('$');
 					
 					String data = original.substring(position);
