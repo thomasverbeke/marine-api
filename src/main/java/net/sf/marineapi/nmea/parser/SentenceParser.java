@@ -63,7 +63,7 @@ public class SentenceParser implements Sentence {
 
 	// The first character which will be '$' most of the times but could be '!'.
 	private char beginChar;
-	public int RUNNER_ID;
+	public int RUNNER_ID = 0;
 
 	// The first two characters after '$'.
 	private TalkerId talkerId;
