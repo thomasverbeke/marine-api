@@ -81,10 +81,17 @@ class DefaultDataReader implements DataReader {
 		while (isRunning) {
 			try {
 				if (input.ready()) {
-					String data = input.readLine();
+					String original = input.readLine();
+					//CUT OFF first three char
+					int position = original.indexOf('$');
+					
+					String data = original.substring(position);
+					int runnerID = Integer.parseInt(original.substring(0,position));
+					
 					if (SentenceValidator.isValid(data)) {
 						monitor.refresh();
 						Sentence s = factory.createParser(data);
+						s.setRunnerID(runnerID);
 						parent.fireSentenceEvent(s);
 					}
 				}

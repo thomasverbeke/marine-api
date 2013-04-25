@@ -149,4 +149,8 @@ public interface Sentence {
 	 * @return Sentence String
 	 */
 	String toString();
+
+	void setRunnerID(int runnerID);
+
+	int getRunnerID();
 }

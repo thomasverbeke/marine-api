@@ -63,6 +63,7 @@ public class SentenceParser implements Sentence {
 
 	// The first character which will be '$' most of the times but could be '!'.
 	private char beginChar;
+	public int RUNNER_ID;
 
 	// The first two characters after '$'.
 	private TalkerId talkerId;
@@ -109,6 +110,8 @@ public class SentenceParser implements Sentence {
 			fields.add(s);
 		}
 	}
+
+	
 
 	/**
 	 * Creates a new instance of SentenceParser. Parser may be constructed only
@@ -561,5 +564,17 @@ public class SentenceParser implements Sentence {
 			throw new IllegalArgumentException(msg);
 		}
 		beginChar = ch;
+	}
+
+
+
+	@Override
+	public void setRunnerID(int runnerID) {
+		RUNNER_ID = runnerID;
+	}
+	
+	@Override
+	public int getRunnerID(){
+		return RUNNER_ID;
 	}
 }
