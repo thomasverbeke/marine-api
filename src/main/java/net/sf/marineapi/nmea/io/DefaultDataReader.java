@@ -82,12 +82,25 @@ class DefaultDataReader implements DataReader {
 			try {
 				if (input.ready()) {
 					String original = input.readLine();
-					//CUT OFF extra characters added by the PIC
+					//CUT OFF header containing ID
 					int position = original.indexOf('$');
 					
 					String data = original.substring(position);
-					int runnerID = Integer.parseInt(original.substring(0,position));
+	
+					int runnerID = 0;
 					
+					 //CATCH when there is no ID header
+					try {
+						runnerID = Integer.parseInt(original.substring(0,position));	 	
+					} catch (NumberFormatException e) {
+						if (original.substring(0,position) == ""){
+							System.out.println("No ID header");
+						} else {
+							System.out.println(e);
+						}
+					    
+					}
+				
 					if (SentenceValidator.isValid(data)) {
 						monitor.refresh();
 						Sentence s = factory.createParser(data);
