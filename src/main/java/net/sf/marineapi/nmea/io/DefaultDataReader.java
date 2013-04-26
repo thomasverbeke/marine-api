@@ -93,7 +93,7 @@ class DefaultDataReader implements DataReader {
 					try {
 						runnerID = Integer.parseInt(original.substring(0,position));	 	
 					} catch (NumberFormatException e) {
-						if (original.substring(0,position) == ""){
+						if (position == 0){
 							System.out.println("No ID header");
 						} else {
 							System.out.println(e);
